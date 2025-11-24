@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EON Security provides professional offensive security services including penetration testing, red team assessments, and compliance testing for Northern Virginia and the DMV region.">
+    <meta name="keywords" content="penetration testing, red team, offensive security, cybersecurity, CMMC, NIST 800-171, Northern Virginia, DMV, security assessment">
+    <meta name="author" content="EON Security">
+    <meta property="og:title" content="EON Security | Offensive Security Services">
+    <meta property="og:description" content="Professional penetration testing and red team operations for businesses that take security seriously.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eon-security.com">
+    <meta property="og:image" content="https://www.eon-security.com/media/eon-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EON Security | Offensive Security Services">
+    <meta name="twitter:description" content="Professional penetration testing and red team operations for businesses that take security seriously.">
+    <title>EON Security | Offensive Security Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #ff9500;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-nav svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff9500;
+        }
+        
+        .nav-links a.active {
+            color: #ff9500;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #ff9500;
+            margin: 6px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 150px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3em;
+            color: #ff9500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #ffaa00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,149,0,0.4);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 35px;
+            border-left: 5px solid #ff9500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,149,0,0.2);
+        }
+        
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Why Choose Section */
+        .why-choose {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .why-choose .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .why-choose .section-title {
+            color: #ff9500;
+        }
+        
+        .why-choose .section-subtitle {
+            color: #ddd;
+        }
+        
+        .why-grid {
+            display: grid;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .why-item {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,149,0,0.2);
+        }
+        
+        .why-number {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .why-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #ff9500;
+        }
+        
+        .why-item p {
+            color: #ddd;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .why-item ul {
+            list-style: none;
+            margin-left: 20px;
+            color: #ddd;
+        }
+        
+        .why-item ul li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .why-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff9500;
+            font-weight: 700;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: #fff;
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #ff9500;
+        }
+        
+        .contact-item h3 {
+            color: #ff9500;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .contact-item p {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            color: #999;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: #000;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+                border-top: 1px solid #333;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #333;
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="media/eon-logo.png" alt="EON Security Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                <a href="index.html" class="logo-text">EON SECURITY</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>EON SECURITY</h1>
+            <div class="tagline">Offensive Security Services</div>
+            <p>Think your systems are secure? We prove it—or expose the gaps before attackers do. Professional penetration testing and red team operations for businesses that take security seriously.</p>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive offensive security testing tailored to your organization's unique threat landscape</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎣</div>
+                    <h3>Social Engineering</h3>
+                    <p>Phishing campaigns, vishing, and physical security testing to evaluate your human defense layer.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Internal Network Penetration Testing</h3>
+                    <p>Assume-breach scenarios testing your internal defenses, lateral movement controls, and segmentation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Internal Cloud Penetration Testing</h3>
+                    <p>AWS, Azure, and GCP environment assessments from an insider threat perspective.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚨</div>
+                    <h3>Red Team Assessments</h3>
+                    <p>Full-scope adversary simulation testing your people, processes, and technology against real-world attack chains.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Compliance Testing</h3>
+                    <p>CMMC, NIST 800-171, HIPAA, and GLBA focused assessments with executive reporting for regulators and CISOs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Vulnerability Testing & Scans</h3>
+                    <p>Comprehensive vulnerability assessments and authenticated scanning to identify and prioritize security weaknesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose EON Security?</h2>
+            <p class="section-subtitle">We don't just test your security—we partner with you to build resilient defenses</p>
+            
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-number">1</div>
+                    <h3>Real Attackers. Real Defense.</h3>
+                    <p>We don't run cookie-cutter scans — we emulate real adversaries. Our operators build custom command-and-control (C2) frameworks, weaponize exploits, and test your controls exactly how an advanced threat would. That means when you pass an EON assessment, you're ready for the real thing.</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-number">2</div>
+                    <h3>Compliance Meets Combat</h3>
+                    <p>We bridge the gap between compliance frameworks and true security:</p>
+                    <ul>
+                        <li>CMMC & NIST 800-171 readiness</li>
+                        <li>HIPAA & GLBA assessments</li>
+                        <li>Executive reporting aligned to both regulators and CISOs</li>
+                    </ul>
+                    <p>You don't just "check boxes" — you harden your business against real risk.</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-number">3</div>
+                    <h3>Partnership Over Transaction</h3>
+                    <p>We see ourselves as an extension of your security team — providing long-term value through retesting, advisory sessions, and continuous security improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Ready to Test Your Defenses?</h2>
+                <p class="section-subtitle">Schedule a free consultation to discuss your security needs</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>contact@eonsecurity.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Northern Virginia<br>DMV Region</p>
+                    </div>
+                </div>
+                
+                <a href="contact.html" class="cta-button" style="margin-top: 40px;">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EON Security. All rights reserved. | Serving Northern Virginia & the DMV Region</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

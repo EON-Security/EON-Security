@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about EON Security's founder, nearly 4 years of offensive security experience, and expertise in Active Directory, cloud security, and red team operations.">
+    <meta name="keywords" content="offensive security expert, OSCP, OSEP, penetration tester, red team operator, Northern Virginia cybersecurity">
+    <meta name="author" content="EON Security">
+    <meta property="og:title" content="About | EON Security">
+    <meta property="og:description" content="Built on experience. Driven by results. Learn about our offensive security expertise.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eon-security.com/about.html">
+    <title>About | EON Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #ff9500;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-nav svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff9500;
+        }
+        
+        .nav-links a.active {
+            color: #ff9500;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #ff9500;
+            margin: 6px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 150px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2em;
+            color: #ff9500;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .story-section {
+            margin-bottom: 60px;
+        }
+        
+        .story-section h2 {
+            font-size: 2em;
+            color: #000;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff9500;
+            padding-left: 20px;
+        }
+        
+        .story-section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Expertise Grid */
+        .expertise {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+        
+        .expertise-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .expertise h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #000;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .expertise-card {
+            background: #fff;
+            padding: 30px;
+            border-left: 4px solid #ff9500;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.3em;
+            color: #ff9500;
+            margin-bottom: 15px;
+        }
+        
+        .expertise-card ul {
+            list-style: none;
+            color: #666;
+        }
+        
+        .expertise-card ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .expertise-card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff9500;
+            font-weight: 700;
+        }
+        
+        /* Certifications Section */
+        .certifications {
+            margin: 60px 0;
+        }
+        
+        .certifications h2 {
+            font-size: 2em;
+            color: #000;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff9500;
+            padding-left: 20px;
+        }
+        
+        .cert-category {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .cert-category h3 {
+            color: #ff9500;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .cert-badge {
+            background: #fff;
+            padding: 10px 20px;
+            border: 2px solid #ff9500;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+        }
+        
+        /* Timeline */
+        .timeline {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .timeline-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff9500;
+        }
+        
+        .timeline-item {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff9500;
+            border-radius: 5px;
+        }
+        
+        .timeline-item h3 {
+            color: #ff9500;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item p {
+            color: #ddd;
+            line-height: 1.7;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+        
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #ffaa00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,149,0,0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            color: #999;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: #000;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+                border-top: 1px solid #333;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #333;
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="media/eon-logo.png" alt="EON Security Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                <a href="index.html" class="logo-text">EON SECURITY</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About EON Security</h1>
+            <div class="tagline">Built on Experience. Driven by Results.</div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section id="story" class="story-section">
+            <h2>The EON Security Story</h2>
+            <p>EON Security was founded with a singular mission: to provide genuine, proactive security support to organizations that need it most. What started as CyberAdvent in 2022 has evolved into EON Security—a commitment to serving local businesses and government organizations with real-world offensive security expertise.</p>
+            
+            <p>The catalyst was witnessing firsthand the devastating impact of a ransomware attack on an organization. That moment crystallized a simple truth: reactive security isn't enough. Businesses need partners who can identify and close security gaps before adversaries exploit them. Since then, EON Security has been dedicated to preventing those attacks through proactive security measures and real adversary emulation.</p>
+            
+            <p>With nearly 4 years of focused offensive security experience and over 5 years supporting government organizations, EON Security brings a unique perspective to the table. This isn't just another penetration testing shop running automated scans—this is security testing informed by years of hands-on experience across the entire technology stack.</p>
+        </section>
+
+        <section class="story-section">
+            <h2>A Foundation Built on Understanding</h2>
+            <p>What sets EON Security apart is a deep understanding of not just how to find vulnerabilities, but why they exist and how to fix them effectively. This perspective comes from a diverse background that spans the entire IT spectrum—from helpdesk analyst and system administrator roles to threat hunting, penetration testing, and red team operations.</p>
+            
+            <p>That system administrator experience? It's invaluable. When EON Security identifies a security issue, it's not just flagged as "bad"—there's an understanding of why an administrator might have configured something a particular way, the operational constraints they face, and most importantly, how to remediate the issue without breaking business operations. This empathy for the defender's perspective makes EON Security's recommendations practical, not just technically sound.</p>
+            
+            <p>The progression from defense to offense—moving through threat hunting, penetration testing, and red team operations—provides the adversarial mindset needed to truly test an organization's security posture. But it's always grounded in the reality of what defenders actually face.</p>
+        </section>
+    </div>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="expertise-content">
+            <h2>Areas of Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Active Directory Security</h3>
+                    <ul>
+                        <li>Domain enumeration & privilege escalation</li>
+                        <li>Kerberos attack techniques</li>
+                        <li>Forest and domain trust exploitation</li>
+                        <li>GPO abuse and misconfigurations</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Multi-Cloud Environments</h3>
+                    <ul>
+                        <li>AWS security assessments</li>
+                        <li>Azure penetration testing</li>
+                        <li>GCP configuration reviews</li>
+                        <li>Cloud-native attack paths</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Antivirus Evasion</h3>
+                    <ul>
+                        <li>Custom payload development</li>
+                        <li>EDR bypass techniques</li>
+                        <li>Obfuscation and encoding</li>
+                        <li>In-memory execution methods</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Tool Development</h3>
+                    <ul>
+                        <li>Nim programming for offensive tools</li>
+                        <li>Custom C2 frameworks</li>
+                        <li>Exploit weaponization</li>
+                        <li>Automation and scripting</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Government & DoD</h3>
+                    <ul>
+                        <li>CMMC compliance testing</li>
+                        <li>NIST 800-171 assessments</li>
+                        <li>Classified environment experience</li>
+                        <li>5+ years in government sector</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Healthcare Security</h3>
+                    <ul>
+                        <li>HIPAA compliance assessments</li>
+                        <li>EHR system security</li>
+                        <li>Medical device testing</li>
+                        <li>Patient data protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <div class="content">
+        <section class="certifications">
+            <h2>Certifications & Credentials</h2>
+            <p style="color: #666; margin-bottom: 30px; font-size: 1.1em;">EON Security maintains active certifications across offensive security, digital forensics, and core IT disciplines—ensuring expertise is current and validated.</p>
+            
+            <div class="cert-category">
+                <h3>Relevant Cybersecurity Certifications</h3>
+                <div class="cert-list">
+                    <span class="cert-badge">OffSec OSCP+ (Offensive Security Certified Professional)</span>
+                    <span class="cert-badge">OffSec OSEP (Offensive Security Experienced Penetration Tester)</span>
+                    <span class="cert-badge">CompTIA PenTest+</span>
+                    <span class="cert-badge">CWL CRT-ID (Certified Red Team – Infrastructure Developer)</span>
+                    <span class="cert-badge">CWL MCRTA (Multi-Cloud Red Teaming Analyst)</span>
+                    <span class="cert-badge">PwnedLabs ACRTP (Amazon Cloud Red Team Professional)</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="timeline-content">
+            <h2>Professional Journey</h2>
+            
+            <div class="timeline-item">
+                <h3>Helpdesk & System Administration</h3>
+                <p>Built a solid foundation in technology by supporting end-users and managing infrastructure. Gained critical insights into how organizations actually operate and the real-world constraints IT teams face.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Threat Hunting</h3>
+                <p>Transitioned to proactive security, learning to identify malicious activity and anomalous behavior across enterprise environments. Developed the investigative mindset essential for offensive operations.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Penetration Testing</h3>
+                <p>Moved into offensive security, conducting vulnerability assessments and penetration tests for government and commercial clients. Focused on practical, real-world attack scenarios.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Red Team Operations</h3>
+                <p>Advanced to full-spectrum red team engagements, emulating advanced persistent threats and testing organizational resilience against sophisticated adversaries.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Founded CyberAdvent (2022)</h3>
+                <p>After witnessing the devastating impact of ransomware, launched CyberAdvent to provide proactive security services and prevent similar attacks for other organizations.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Evolved to EON Security (2026)</h3>
+                <p>Rebranded and refocused on serving local businesses and government organizations in the DMV region, bringing enterprise-grade security testing to organizations that need it most.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p style="color: #666; font-size: 1.1em; max-width: 700px; margin: 0 auto;">Ready to partner with a security professional who understands both offense and defense? Let's discuss how EON Security can help strengthen your security posture.</p>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EON Security. All rights reserved. | Serving Northern Virginia & the DMV Region</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

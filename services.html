@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EON Security offers social engineering, network penetration testing, cloud security assessments, red team operations, CMMC compliance testing, and vulnerability assessments.">
+    <meta name="keywords" content="penetration testing services, red team assessment, CMMC testing, cloud security, Active Directory testing, social engineering">
+    <meta name="author" content="EON Security">
+    <meta property="og:title" content="Services | EON Security">
+    <meta property="og:description" content="Comprehensive offensive security testing tailored to your organization's unique threat landscape.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eon-security.com/services.html">
+    <title>Services | EON Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #ff9500;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-nav svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff9500;
+        }
+        
+        .nav-links a.active {
+            color: #ff9500;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #ff9500;
+            margin: 6px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 150px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2em;
+            color: #ff9500;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.1em;
+            color: #ddd;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        /* Service Detail Section */
+        .service-detail {
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .service-detail:nth-child(even) {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .service-detail:nth-child(even) .service-icon-large {
+            order: 2;
+        }
+        
+        .service-detail:nth-child(even) .service-description {
+            order: 1;
+        }
+        
+        .service-icon-large {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            padding: 60px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ff9500;
+        }
+        
+        .service-icon-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255,149,0,0.03) 20px,
+                rgba(255,149,0,0.03) 40px
+            );
+            pointer-events: none;
+        }
+        
+        .service-icon-large .icon {
+            font-size: 5em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-description h2 {
+            font-size: 2.2em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .service-description .service-intro {
+            font-size: 1.15em;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .service-description h3 {
+            font-size: 1.4em;
+            color: #ff9500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .service-description ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .service-description ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .service-description ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ff9500;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .ideal-for {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-left: 4px solid #ff9500;
+            margin-top: 25px;
+            border-radius: 5px;
+        }
+        
+        .ideal-for h4 {
+            color: #000;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .ideal-for p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff9500, transparent);
+            margin: 60px 0;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 80px 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .process-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff9500;
+        }
+        
+        .process-section .section-intro {
+            text-align: center;
+            font-size: 1.1em;
+            color: #ddd;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            background: rgba(255,255,255,0.05);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,149,0,0.3);
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .process-step h3 {
+            color: #ff9500;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .process-step p {
+            color: #ddd;
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .cta-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #ffaa00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,149,0,0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            color: #999;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (max-width: 968px) {
+            .service-detail,
+            .service-detail:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail:nth-child(even) .service-icon-large,
+            .service-detail:nth-child(even) .service-description {
+                order: initial;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: #000;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+                border-top: 1px solid #333;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #333;
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="media/eon-logo.png" alt="EON Security Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                <a href="index.html" class="logo-text">EON SECURITY</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Services</h1>
+            <div class="tagline">Comprehensive Offensive Security Testing</div>
+            <p>From social engineering to full red team operations, EON Security provides the offensive testing your organization needs to identify and fix vulnerabilities before attackers exploit them.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Service 1: Social Engineering -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">🎣</div>
+            </div>
+            <div class="service-description">
+                <h2>Social Engineering</h2>
+                <p class="service-intro">Your employees are either your strongest defense or your weakest link. We test your human security layer through realistic attack scenarios that evaluate how your organization responds to social engineering threats.</p>
+                
+                <h3>What We Test</h3>
+                <ul>
+                    <li>Phishing campaigns with custom payloads and pretext scenarios</li>
+                    <li>Vishing (voice phishing) to test phone-based security protocols</li>
+                    <li>Pretexting and impersonation attacks</li>
+                    <li>Physical security testing including tailgating and unauthorized access attempts</li>
+                    <li>USB drop attacks and malicious device deployment</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Organizations looking to improve security awareness training, validate employee response to threats, and meet compliance requirements like HIPAA or GLBA that mandate security awareness programs.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Service 2: Internal Network Penetration Testing -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">🌐</div>
+            </div>
+            <div class="service-description">
+                <h2>Internal Network Penetration Testing</h2>
+                <p class="service-intro">We simulate an insider threat or assume-breach scenario to test your internal defenses. This assessment reveals how an attacker who has gained initial access would move laterally, escalate privileges, and compromise critical assets within your network.</p>
+                
+                <h3>What We Test</h3>
+                <ul>
+                    <li>Network segmentation and isolation controls</li>
+                    <li>Active Directory security and privilege escalation paths</li>
+                    <li>Lateral movement detection and prevention</li>
+                    <li>Internal credential harvesting and password security</li>
+                    <li>Sensitive data exposure on file shares and databases</li>
+                    <li>Insider threat scenarios and detection capabilities</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Organizations with complex internal networks, those concerned about insider threats, and companies needing to validate zero-trust architecture implementations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Service 3: Internal Cloud Penetration Testing -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">☁️</div>
+            </div>
+            <div class="service-description">
+                <h2>Internal Cloud Penetration Testing</h2>
+                <p class="service-intro">Cloud environments introduce unique security challenges. We assess your AWS, Azure, and GCP deployments from an insider perspective, identifying misconfigurations and security gaps that could lead to data breaches or service disruption.</p>
+                
+                <h3>What We Test</h3>
+                <ul>
+                    <li>IAM role misconfigurations and privilege escalation</li>
+                    <li>Storage bucket permissions and data exposure (S3, Azure Blob, GCS)</li>
+                    <li>Serverless function security and API Gateway vulnerabilities</li>
+                    <li>Container and Kubernetes security misconfigurations</li>
+                    <li>Cross-account access and resource sharing risks</li>
+                    <li>Cloud-native logging and monitoring bypass techniques</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Organizations migrating to or operating in cloud environments, SaaS companies, and businesses storing sensitive data in cloud infrastructure.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Service 4: Red Team Assessments -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">🚨</div>
+            </div>
+            <div class="service-description">
+                <h2>Red Team Assessments</h2>
+                <p class="service-intro">Full-spectrum adversary simulation that tests your entire security program—people, processes, and technology. We operate like a real threat actor, using custom tools, social engineering, and advanced techniques to achieve objectives without detection.</p>
+                
+                <h3>What We Test</h3>
+                <ul>
+                    <li>Multi-phase attack chains from initial access to data exfiltration</li>
+                    <li>Custom C2 (command and control) infrastructure and persistence mechanisms</li>
+                    <li>EDR and antivirus evasion using custom tooling</li>
+                    <li>Detection and response capability validation</li>
+                    <li>Security operations center (SOC) effectiveness testing</li>
+                    <li>Incident response team readiness and communication</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Mature organizations with established security programs looking to validate their defensive capabilities against advanced persistent threats (APTs).</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Service 5: Compliance Testing -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">📋</div>
+            </div>
+            <div class="service-description">
+                <h2>Compliance Testing</h2>
+                <p class="service-intro">Compliance frameworks provide a baseline, but checking boxes doesn't equal security. We assess your controls against regulatory requirements while also validating that they actually protect against real-world threats.</p>
+                
+                <h3>Frameworks We Support</h3>
+                <ul>
+                    <li>CMMC (Cybersecurity Maturity Model Certification) for defense contractors</li>
+                    <li>NIST 800-171 security requirements for CUI</li>
+                    <li>HIPAA security assessments for healthcare organizations</li>
+                    <li>GLBA safeguards for financial institutions</li>
+                    <li>Executive reporting aligned to both regulators and CISOs</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Government contractors pursuing CMMC certification, healthcare providers, financial institutions, and any organization handling regulated data.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Service 6: Vulnerability Testing & Scans -->
+        <div class="service-detail">
+            <div class="service-icon-large">
+                <div class="icon">🔍</div>
+            </div>
+            <div class="service-description">
+                <h2>Vulnerability Testing & Scans</h2>
+                <p class="service-intro">Continuous vulnerability management is essential for maintaining security posture. We provide comprehensive vulnerability assessments that go beyond automated scanning to identify, prioritize, and provide remediation guidance for security weaknesses.</p>
+                
+                <h3>What We Provide</h3>
+                <ul>
+                    <li>Authenticated and unauthenticated vulnerability scanning</li>
+                    <li>Manual verification and validation of findings</li>
+                    <li>Risk-based prioritization using business context</li>
+                    <li>Detailed remediation guidance for IT teams</li>
+                    <li>Recurring scans to track remediation progress</li>
+                    <li>Executive dashboards showing risk trends over time</li>
+                </ul>
+                
+                <div class="ideal-for">
+                    <h4>Ideal For:</h4>
+                    <p>Organizations needing regular security assessments, compliance validation, or pre-audit preparation. Perfect for establishing a security baseline before more advanced testing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-content">
+            <h2>Our Engagement Process</h2>
+            <p class="section-intro">Every assessment follows a structured methodology designed to maximize value while minimizing disruption to your operations.</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Scoping</h3>
+                    <p>We work with you to define objectives, establish rules of engagement, and identify systems in scope for testing.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Testing</h3>
+                    <p>Our operators conduct the assessment using real-world techniques, custom tooling, and adversary emulation tactics.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Reporting</h3>
+                    <p>You receive detailed technical findings with remediation guidance, plus executive summaries for leadership.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Debrief</h3>
+                    <p>We walk through findings with your team, answer questions, and provide strategic recommendations for improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Test Your Defenses?</h2>
+        <p>Let's discuss which assessment is right for your organization and create a customized testing plan that fits your security goals and budget.</p>
+        <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EON Security. All rights reserved. | Serving Northern Virginia & the DMV Region</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

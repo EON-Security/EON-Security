@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact EON Security for a free security consultation. We serve Northern Virginia and the DMV region with professional penetration testing services.">
+    <meta name="keywords" content="contact penetration tester, security consultation, Northern Virginia cybersecurity, DMV security services">
+    <meta name="author" content="EON Security">
+    <meta property="og:title" content="Contact | EON Security">
+    <meta property="og:description" content="Get in touch to discuss your security needs. Free consultation available.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eon-security.com/contact.html">
+    <title>Contact | EON Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #ff9500;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-nav svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff9500;
+        }
+        
+        .nav-links a.active {
+            color: #ff9500;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #ff9500;
+            margin: 6px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 150px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2em;
+            color: #ff9500;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        /* Left Column - Info */
+        .contact-info-section h2 {
+            font-size: 2em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-section p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-left: 4px solid #ff9500;
+            border-radius: 5px;
+        }
+        
+        .info-card h3 {
+            color: #ff9500;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            color: #333;
+            font-size: 1em;
+            margin: 0;
+        }
+        
+        .info-card a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .info-card a:hover {
+            color: #ff9500;
+        }
+        
+        /* Right Column - Form */
+        .contact-form-section h2 {
+            font-size: 2em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .form-intro {
+            font-size: 1.05em;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        /* Mailchimp Form Container */
+        .mailchimp-form-container {
+            background: #fff;
+            padding: 40px;
+            border: 2px solid #ff9500;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .mailchimp-placeholder {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+        }
+        
+        .mailchimp-placeholder h3 {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .mailchimp-placeholder p {
+            color: #999;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .mailchimp-placeholder code {
+            background: #fff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            color: #ff9500;
+            font-weight: 600;
+        }
+        
+        .integration-steps {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .integration-steps h3 {
+            color: #000;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+        
+        .integration-steps ol {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .integration-steps li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .integration-steps strong {
+            color: #ff9500;
+        }
+        
+        /* Alternate Contact Methods */
+        .alternate-contact {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alternate-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,149,0,0.03) 40px,
+                rgba(255,149,0,0.03) 80px
+            );
+            pointer-events: none;
+        }
+        
+        .alternate-contact-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .alternate-contact h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff9500;
+        }
+        
+        .alternate-contact p {
+            font-size: 1.1em;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .direct-contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: #ff9500;
+            color: #000;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact-button:hover {
+            background: #ffaa00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,149,0,0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            color: #999;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (max-width: 968px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: #000;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+                border-top: 1px solid #333;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #333;
+            }
+            
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .direct-contact-buttons {
+                flex-direction: column;
+            }
+            
+            .contact-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="media/eon-logo.png" alt="EON Security Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                <a href="index.html" class="logo-text">EON SECURITY</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <div class="tagline">Let's Discuss Your Security Needs</div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="contact-layout">
+            <!-- Left Column - Contact Info -->
+            <div class="contact-info-section">
+                <h2>Contact Information</h2>
+                <p>Ready to strengthen your security posture? Reach out to schedule a free consultation and learn how EON Security can help protect your organization.</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:contact@eonsecurity.com">contact@eonsecurity.com</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>📍 Service Area</h3>
+                        <p>Northern Virginia & the DMV Region</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>⏱️ Response Time</h3>
+                        <p>We typically respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Form -->
+            <div class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <p class="form-intro">Fill out the form below and we'll get back to you shortly to discuss your security assessment needs.</p>
+                
+                <div class="mailchimp-form-container">
+                    <!-- HUBSPOT FORM -->
+                    <script src="https://js-na2.hsforms.net/forms/embed/244329320.js" defer></script>
+                    <div class="hs-form-frame" data-region="na2" data-form-id="4722b6aa-08c8-4bb0-b1ff-2d855eb293db" data-portal-id="244329320"></div>
+                    <!-- END HUBSPOT FORM -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EON Security. All rights reserved. | Serving Northern Virginia & the DMV Region</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
